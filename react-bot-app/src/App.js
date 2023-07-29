@@ -1,25 +1,54 @@
-import React from React
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import BotCollection from './BotCollection';
+import YourBotArmy from './YourBotArmy';
 
-function App() {
+const App = () => {
+  const [bots, setBots] = useState([]);
+  const [enlistedBots, setEnlistedBots] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8001/bots')
+      .then((response) => response.json())
+      .then((data) => setBots(data))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
+  const enlistBot = (botId) => {
+    const botToEnlist = bots.find((bot) => bot.id === botId);
+    if (!enlistedBots.includes(botToEnlist)) {
+      setEnlistedBots([...enlistedBots, botToEnlist]);
+    }
+  };
+
+  const dischargeBot = (botId) => {
+    setEnlistedBots(enlistedBots.filter((bot) => bot.id !== botId));
+  };
+
+  const deleteBot = (botId) => {
+    fetch(`http://localhost:8001/bots/${botId}`, {
+      method: 'DELETE',
+    })
+      .then(() => {
+        setBots(bots.filter((bot) => bot.id !== botId));
+        setEnlistedBots(enlistedBots.filter((bot) => bot.id !== botId));
+      })
+      .catch((error) => console.error('Error deleting bot:', error));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          
-        </a>
-      </header>
+    <div>
+      <h1>Welcome to Bot Battlr</h1>
+      <h2>Bot Collection</h2>
+      <BotCollection
+        bots={bots}
+        enlistedBots={enlistedBots}
+        onEnlist={enlistBot}
+        onDelete={deleteBot}
+      />
+      <h2>Your Bot Army</h2>
+      <YourBotArmy enlistedBots={enlistedBots} onDischarge={dischargeBot} />
     </div>
   );
-}
+};
 
 export default App;
