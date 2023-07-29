@@ -5,7 +5,7 @@ const YourBotArmy = ({ enlistedBots, onDischarge }) => {
   return (
     <div>
       {enlistedBots.map((bot) => (
-        <Bot key={bot.id} bot={bot} enlisted onDischarge={onDischarge} />
+        <Bot key={bot.id} bot={bot} onDischarge={onDischarge} />
       ))}
     </div>
   );
