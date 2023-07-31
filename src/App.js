@@ -7,7 +7,7 @@ const App = () => {
   const [enlistedBots, setEnlistedBots] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/bots')
+    fetch('https://api.npoint.io/fe1f446659b7e161b13c/bots')
       .then((response) => response.json())
       .then((data) => setBots(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -25,7 +25,7 @@ const App = () => {
   };
 
   const deleteBot = (botId) => {
-    fetch(`http://localhost:3000/bots/${botId}`, {
+    fetch(`https://api.npoint.io/fe1f446659b7e161b13c/bots${botId}`, {
       method: 'DELETE',
     })
       .then(() => {
