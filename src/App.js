@@ -25,7 +25,7 @@ const App = () => {
   };
 
   const deleteBot = (botId) => {
-    fetch(`https://api.npoint.io/fe1f446659b7e161b13c/bots${botId}`, {
+    fetch(`https://api.npoint.io/fe1f446659b7e161b13c/bots/${botId}`, {
       method: 'DELETE',
     })
       .then(() => {
