@@ -1,4 +1,39 @@
-# Getting Started with Create React App
+# Bot Battlr - Mini Web App
+Welcome to Bot Battlr, the one and only spot in the known universe where you can custom build your own Bot Army! This React application allows you to browse through a list of robots, view a robot's details, and enlist bots into your army.
+
+# Introduction
+For this project, I built a React application that displays a list of available bots. You can view the profiles of all bots in the BotCollection. By clicking on a bot, you can enlist it into your YourBotArmy. Each bot can be enlisted only once, but it will remain visible in the BotCollection. You can also discharge enlisted bots from your army, which removes them from YourBotArmy. Additionally, you can permanently delete bots by clicking the "Delete" button.
+
+# Project Setup
+To run this project locally, follow these steps:
+
+Clone the repository: git clone https://github.com/yourusername/bot-battlr.git
+Change directory: cd bot-battlr
+Install dependencies: npm install
+Start the development server: npm start
+Open your browser and visit: http://localhost:3000
+
+# Features
+View profiles of all bots in the BotCollection.
+Enlist a bot into your army by clicking on it.
+Discharge a bot from your army by clicking on it (removes it from YourBotArmy).
+Permanently delete a bot by clicking the "Delete" button.
+Dependencies
+This project uses the following main dependencies:
+
+react: To build the user interface and components.
+react-dom: For rendering the React components in the DOM.
+json-server: To run the JSON server for data fetching.
+Please ensure you have these dependencies installed globally or within your project.
+
+How to Use
+After setting up the project as described in the Project Setup section, you can open your browser and access the Bot Battlr application at http://localhost:3000. You will see the list of available bots in the BotCollection. To enlist a bot, simply click the "Enlist" button, and it will appear in YourBotArmy. To discharge a bot, click the "Discharge" button in YourBotArmy, and it will be removed from your army. To delete a bot permanently, click the "Delete" button in the bot's profile.
+
+API Endpoints
+The application fetches bot data from a local JSON server. The available endpoints are:
+
+GET /bots: Returns a list of all bots with their details.
+DELETE /bots/:id: Deletes a bot with the specified id.# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
