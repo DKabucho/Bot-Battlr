@@ -11,7 +11,9 @@ Clone the repository: git clone https://github.com/yourusername/bot-battlr.git
 Change directory: cd bot-battlr
 Install dependencies: npm install
 Start the development server: npm start
+Open a different terminal and run the json server:json-server --watch db.json
 Open your browser and visit: http://localhost:3000
+
 
 # Features
 View profiles of all bots in the BotCollection.
